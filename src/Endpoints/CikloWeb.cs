@@ -73,15 +73,15 @@ public static class CikloWebExtensions
         var sb = new StringBuilder();
         if (data.Contact != null)
         {
-            sb.AppendLine($"Ime: {data.Contact.Payment}");
-            sb.AppendLine($"Prezime: {data.Contact.Payment}");
-            sb.AppendLine($"Email: {data.Contact.Payment}");
-            sb.AppendLine($"Kontakt: {data.Contact.Payment}");
-            sb.AppendLine($"Adresa: {data.Contact.Payment}");
-            sb.AppendLine($"Poštanski broj: {data.Contact.Payment}");
-            sb.AppendLine($"Mjesto: {data.Contact.Payment}");
+            sb.AppendLine($"Ime: {data.Contact.FirstName}");
+            sb.AppendLine($"Prezime: {data.Contact.LastName}");
+            sb.AppendLine($"Email: {data.Contact.Email}");
+            sb.AppendLine($"Kontakt: {data.Contact.Tel}");
+            sb.AppendLine($"Adresa: {data.Contact.Address}");
+            sb.AppendLine($"Poštanski broj: {data.Contact.Zip}");
+            sb.AppendLine($"Mjesto: {data.Contact.City}");
             sb.AppendLine($"Način plaćanja: {data.Contact.Payment}");
-            sb.AppendLine($"Napomena: {data.Contact.Payment}");
+            sb.AppendLine($"Napomena: {data.Contact.Note}");
         }
 
         if (data.Items != null)
