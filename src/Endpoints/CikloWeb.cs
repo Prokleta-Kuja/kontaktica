@@ -63,6 +63,7 @@ public static class CikloWebExtensions
 
             using var client = new SmtpClient();
             await client.ConnectAsync(conf.Host, conf.Port, SecureSocketOptions.Auto);
+            await client.AuthenticateAsync(conf.Username, conf.Password);
             await client.SendAsync(email);
             await client.DisconnectAsync(true);
         });
