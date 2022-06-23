@@ -5,8 +5,8 @@ namespace kontaktica;
 
 public static class C
 {
-    public static JsonSerializerOptions JsonOpt = new() { WriteIndented = true, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault };
-    public static Settings Settings = new();
+    public static JsonSerializerOptions JsonOpt { get; } = new() { WriteIndented = true, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault };
+    public static Settings Settings { get; set; } = new();
     public static class Routes
     {
         public const string CikloWeb = "/ciklo-web";

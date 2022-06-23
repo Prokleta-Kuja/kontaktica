@@ -1,5 +1,3 @@
-using MimeKit;
-
 namespace kontaktica;
 
 public class Settings

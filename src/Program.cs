@@ -1,6 +1,5 @@
-using System.Net.Mail;
 using System.Text.Json;
-using MimeKit;
+using kontaktica.Endpoints;
 using Serilog;
 
 namespace kontaktica;
@@ -22,7 +21,7 @@ public class Program
 
             var app = builder.Build();
 
-            // Add to request pipeline
+            app.MapCikloWeb();
 
             app.Run();
         }

@@ -43,7 +43,7 @@ public static class CikloWebExtensions
             var productLines = GetProductLines(data.Items);
 
             var email = new MimeMessage();
-            email.Subject = "Novi zahtjev za ponudu";
+            email.Subject = "🎉 Novi zahtjev za ponudu 🎉";
 
             email.From.Add(MailboxAddress.Parse(conf.From));
 
