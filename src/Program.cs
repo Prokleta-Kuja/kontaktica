@@ -17,10 +17,15 @@ public class Program
 
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
+            {
+                policy.WithOrigins(C.Settings.Origins.ToArray());
+                policy.WithHeaders("content-type");
+                policy.WithMethods("post");
+            }));
 
             var app = builder.Build();
-
+            app.UseCors();
             app.MapCikloWeb();
             app.MapIcaWeb();
 
