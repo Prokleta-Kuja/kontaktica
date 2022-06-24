@@ -22,6 +22,7 @@ public class Program
             var app = builder.Build();
 
             app.MapCikloWeb();
+            app.MapIcaWeb();
 
             app.Run();
         }
