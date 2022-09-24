@@ -28,6 +28,7 @@ public class Program
             app.UseCors();
             app.MapCikloWeb();
             app.MapIcaWeb();
+            app.MapModWeb();
 
             app.Run();
         }
