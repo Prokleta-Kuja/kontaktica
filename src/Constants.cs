@@ -11,6 +11,7 @@ public static class C
     {
         public const string CikloWeb = "/ciklo-web";
         public const string IcaWeb = "/ica-web";
+        public const string ModWeb = "/mod-web";
     }
     public static class Paths
     {

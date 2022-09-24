@@ -5,6 +5,7 @@ public class Settings
     public List<string> Origins { get; set; } = new() { "https://example.com", "https://www.example.com" };
     public GenericMailService CikloWeb { get; set; } = new("host", 587, "user", "pass", "First Last <first.last@example.com>");
     public GenericMailService IcaWeb { get; set; } = new("host", 587, "user", "pass", "First Last <first.last@example.com>");
+    public GenericMailService ModWeb { get; set; } = new("host", 587, "user", "pass", "First Last <first.last@example.com>");
 }
 
 public class GenericMailService
