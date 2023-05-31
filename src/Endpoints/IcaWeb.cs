@@ -41,12 +41,11 @@ public static class IcaWebExtensions
     static string GetPlainBody(IcaWebRequest data)
     {
         var sb = new StringBuilder();
-        sb.AppendLine($"First: {data.FirstName}");
-        sb.AppendLine($"Last: {data.LastName}");
-        sb.AppendLine($"Phone: {data.Phone}");
+        sb.AppendLine($"First name: {data.FirstName}");
+        sb.AppendLine($"Last name: {data.LastName}");
+        sb.AppendLine($"Company: {data.Company}");
         sb.AppendLine($"Email: {data.Email}");
         sb.AppendLine($"Message: {data.Message}");
-        sb.AppendLine($"NDA: {data.NDA}");
         return sb.ToString();
     }
 }
@@ -55,8 +54,7 @@ public partial class IcaWebRequest
 {
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
-    public string? Phone { get; set; }
     public string? Email { get; set; }
+    public string? Company { get; set; }
     public string? Message { get; set; }
-    public bool NDA { get; set; }
 }
