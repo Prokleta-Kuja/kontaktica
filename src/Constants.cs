@@ -5,8 +5,13 @@ namespace kontaktica;
 
 public static class C
 {
+    public static readonly bool IsDebug;
     public static JsonSerializerOptions JsonOpt { get; } = new() { WriteIndented = true, DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault };
     public static Settings Settings { get; set; } = new();
+    static C()
+    {
+        IsDebug = Environment.GetEnvironmentVariable("DEBUG") == "1";
+    }
     public static class Routes
     {
         public const string CikloWeb = "/ciklo-web";

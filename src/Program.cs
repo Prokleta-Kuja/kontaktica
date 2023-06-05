@@ -1,15 +1,22 @@
 using System.Text.Json;
 using kontaktica.Endpoints;
 using Serilog;
+using Serilog.Events;
 
 namespace kontaktica;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static int Main(string[] args)
     {
-        using var consoleLogger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
-        Log.Logger = consoleLogger; // Set to global logger
+        Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Is(C.IsDebug ? LogEventLevel.Debug : LogEventLevel.Information)
+                .MinimumLevel.Override(nameof(Microsoft), LogEventLevel.Warning)
+                .Enrich.FromLogContext()
+                .WriteTo.Console(
+                    outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3}] {SourceContext}: {Message:lj}{NewLine}{Exception}"
+                )
+                .CreateLogger();
 
         try
         {
@@ -17,6 +24,7 @@ public class Program
 
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Host.UseSerilog();
             builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
             {
                 policy.WithOrigins(C.Settings.Origins.ToArray());
@@ -30,11 +38,15 @@ public class Program
             app.MapIcaWeb();
             app.MapModWeb();
 
+            Log.Information("App started");
             app.Run();
+
+            return 0;
         }
         catch (Exception ex)
         {
-            Log.Error(ex, "Something went wrong");
+            Log.Fatal(ex, "Host terminated unexpectedly");
+            return 1;
         }
         finally
         {
