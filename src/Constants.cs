@@ -15,6 +15,7 @@ public static class C
     public static class Routes
     {
         public const string CikloWeb = "/ciklo-web";
+        public const string CikloWebService = "/ciklo-web-service";
         public const string IcaWeb = "/ica-web";
         public const string ModWeb = "/mod-web";
     }

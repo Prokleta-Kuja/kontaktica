@@ -35,6 +35,7 @@ public class Program
             var app = builder.Build();
             app.UseCors();
             app.MapCikloWeb();
+            app.MapCikloWebService();
             app.MapIcaWeb();
             app.MapModWeb();
 
