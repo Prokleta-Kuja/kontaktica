@@ -41,10 +41,12 @@ public static class CikloWebServiceExtensions
     static string GetPlainBody(CikloWebServiceRequest data)
     {
         var sb = new StringBuilder();
+        sb.AppendLine($"Subjekt: {data.Subject}");
         sb.AppendLine($"Ime: {data.FirstName}");
         sb.AppendLine($"Prezime: {data.LastName}");
         sb.AppendLine($"Telefon: {data.Tel}");
         sb.AppendLine($"Email: {data.Email}");
+        sb.AppendLine($"Dan: {data.Date}");
         sb.AppendLine($"Napomena: {data.Note}");
         sb.AppendLine();
         if (data.Services != null)
@@ -61,6 +63,8 @@ public partial class CikloWebServiceRequest
     public string? LastName { get; set; }
     public string? Email { get; set; }
     public string? Tel { get; set; }
+    public string? Subject { get; set; }
     public string? Note { get; set; }
+    public string? Date { get; set; }
     public Dictionary<string, int>? Services { get; set; }
 }
