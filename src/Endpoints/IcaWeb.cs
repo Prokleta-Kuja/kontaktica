@@ -44,6 +44,7 @@ public static class IcaWebExtensions
         sb.AppendLine($"First name: {data.FirstName}");
         sb.AppendLine($"Last name: {data.LastName}");
         sb.AppendLine($"Company: {data.Company}");
+        sb.AppendLine($"Time zone: {data.Tz}");
         sb.AppendLine($"Email: {data.Email}");
         sb.AppendLine($"Message: {data.Message}");
         return sb.ToString();
@@ -56,5 +57,6 @@ public partial class IcaWebRequest
     public string? LastName { get; set; }
     public string? Email { get; set; }
     public string? Company { get; set; }
+    public string? Tz { get; set; }
     public string? Message { get; set; }
 }
