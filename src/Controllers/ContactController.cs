@@ -27,7 +27,7 @@ public class ContactController : ControllerBase
         return Ok();
     }
 
-    [HttpGet(C.Routes.IcaWeb)]
+    [HttpPost(C.Routes.IcaWeb)]
     public IActionResult IcaWeb(IcaWebRequest req)
     {
         _logger.LogInformation("ICA new contact request");
@@ -35,7 +35,7 @@ public class ContactController : ControllerBase
         return Accepted();
     }
 
-    [HttpGet(C.Routes.ModWeb)]
+    [HttpPost(C.Routes.ModWeb)]
     public IActionResult ModWeb(ModWebRequest req)
     {
         _logger.LogInformation("MetabuchMod new contact request");
@@ -43,7 +43,7 @@ public class ContactController : ControllerBase
         return Accepted();
     }
 
-    [HttpGet(C.Routes.CikloWeb)]
+    [HttpPost(C.Routes.CikloWeb)]
     public IActionResult CikloWeb(CikloWebRequest req)
     {
         _logger.LogInformation("Ciklo-Sport new buy request");
@@ -51,7 +51,7 @@ public class ContactController : ControllerBase
         return Accepted();
     }
 
-    [HttpGet(C.Routes.CikloWebService)]
+    [HttpPost(C.Routes.CikloWebService)]
     public IActionResult CikloWebService(CikloWebServiceRequest req)
     {
         _logger.LogInformation("Ciklo-Sport new bike service request");
