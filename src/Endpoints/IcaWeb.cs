@@ -32,7 +32,7 @@ public static class IcaWebExtensions
             email.Body = bb.ToMessageBody();
 
             using var client = new SmtpClient();
-            await client.ConnectAsync(conf.Host, conf.Port, SecureSocketOptions.SslOnConnect);
+            await client.ConnectAsync(conf.Host, conf.Port);
             await client.AuthenticateAsync(conf.Username, conf.Password);
             await client.SendAsync(email);
             await client.DisconnectAsync(true);
