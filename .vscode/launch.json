@@ -17,9 +17,10 @@
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
+            "envFile": "${workspaceFolder}/src/.env",
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "ASPNETCORE_URLS": "http://+:5000",
+                "ASPNETCORE_URLS": "http://+:5080",
                 "DEBUG": "1"
             }
         }
