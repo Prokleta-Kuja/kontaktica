@@ -35,7 +35,12 @@ public class Program
                 policy.WithMethods("post");
             }));
             builder.Host.UseSerilog();
-            builder.Services.Configure<ForwardedHeadersOptions>(options => options.ForwardedHeaders = ForwardedHeaders.All);
+            builder.Services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders = ForwardedHeaders.All;
+                options.KnownNetworks.Clear();
+                options.KnownProxies.Clear();
+            });
             builder.Services.AddMemoryCache();
             builder.Services.AddHangfire(configuration => configuration
                 .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
