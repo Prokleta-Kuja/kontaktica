@@ -62,6 +62,7 @@ public class Program
             builder.Services.AddControllers();
 
             var app = builder.Build();
+            app.UseForwardedHeaders();
             app.UseCors();
             app.MapControllers();
             app.UseJobDashboard();
