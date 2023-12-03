@@ -11,7 +11,7 @@ public static class Auth
             return true;
 
         var key = ctx.Connection.RemoteIpAddress?.ToString();
-        ctx.Response.Headers.Add("Your-IP", key);
+        ctx.Response.Headers.Append("Your-IP", key);
         if (string.IsNullOrWhiteSpace(key))
             return false;
 
